@@ -1,0 +1,2 @@
+sudo ifconfig enp0s3 148.204.56.10 netmask 255.255.255.0
+sudo route add default gw 148.204.56.1

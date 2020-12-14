@@ -1,0 +1,5 @@
+sudo apt -y install linux-headers-$(uname -r) build-essential dkms
+sudo apt-get -y install build-essential
+sudo /media/alumno/VBox_GAs_6.1.14/VBoxLinuxAdditions.run
+mkdir ~/Desktop/Windows
+sudo mount -t vboxsf share ./Desktop/Windows/

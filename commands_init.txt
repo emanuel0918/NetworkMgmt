@@ -1,0 +1,14 @@
+sudo apt-get update
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.7
+sudo apt install python3-pip
+python3.7 -m pip install pip
+python3.7 -m pip install pexpect
+sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
+python3.7 -m pip install cryptography
+python3.7 -m pip install paramiko
+sudo apt-get -y install graphviz
+python3.7 -m pip install graphviz
+pip3 install flask_bootstrap
+python3.7 -m pip install flask_bootstrap

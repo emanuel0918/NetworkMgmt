@@ -1,0 +1,8 @@
+
+Fernando
+sudo ifconfig enp0s3 192.168.122.100 netmask 255.255.255.192
+sudo route add default gw 192.168.122.65
+Pruebas ping hacia el router que está luego luego:
+ping 198.168.122.65
+Luego a la otra PC:
+ping 198.168.122.50
