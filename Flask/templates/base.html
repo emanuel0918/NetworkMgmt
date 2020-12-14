@@ -1,0 +1,96 @@
+{% extends "bootstrap/base.html" %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Redes</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+ <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+  <div class="container" align="center">	
+  <h1 class="text-black">Estos son los routers y conexiones que tienes en la topología</h1>
+	<div align="center">	
+  <img src="{{url_for('static',filename='topologia_examen.png')}}" alt="imagen_notfound">
+	</div>
+  <div align="center">
+	<br><br><br>	
+  <a role="button" href="http://127.0.0.1:5000/topologia" onclick="myfunction()" class="btn btn-danger">Analizar denuevo</a>
+	</div>
+  <div align="center">
+	<br>	
+  <a role="button" href="http://127.0.0.1:5000/dispositivos" target="_blank" class="btn btn-success">Opciones de dispositivos</a>
+	</div>
+
+
+ <div class="container p-3 my-3 bg-success text-white" align="center">		
+  <h1 class="text-black">Información sobre las IP en la topología</h1>
+	
+  <div align="center">
+	<br><br>
+  <h2>{{ ip_info[0] }}</h2>
+  <p>{{ ip_info[1] }}</p>
+  <p>{{ ip_info[2] }}</p>
+  <p>{{ ip_info[3] }}</p>
+  <p>{{ ip_info[4] }}</p>
+  <p>{{ ip_info[5] }}</p>
+  <p>{{ ip_info[6] }}</p>
+  <h2>{{ ip_info[7] }}</h2>
+  <p>{{ ip_info[8] }}</p>
+  <p>{{ ip_info[9] }}</p>
+  <p>{{ ip_info[10] }}</p>
+  <p>{{ ip_info[11] }}</p>
+  <p>{{ ip_info[12] }}</p>
+  
+	</div>
+  </div>
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+  
+<script src="{{url_for('static',filename='bootstrap-4.5.3-dist/js/bootstrap.min.js')}}"></script>
+
+{% endblock %}
+
+
+{% block styles %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='bootstrap-4.5.3-dist/css/bootstrap.min.css')}}" >
+{% endblock %}
+

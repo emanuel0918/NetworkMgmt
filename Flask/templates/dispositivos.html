@@ -1,0 +1,108 @@
+{% extends "bootstrap/base.html" %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Redes</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+
+<h1 align="center" class="text-primary">INFORMACIÓN DEL DISPOSITIVO</h1>
+<div align="center" class="container p-3 my-3 bg-primary text-white">
+<p>Hostname: {{ json["hostname"] }}
+<p>Ip mas alta de sus enlaces: {{ json["id_ip"] }}
+<p>Marca: {{ json["marca"] }}
+<p>Versión del sistema operativo: {{ json["versionSO"] }} <br><br>
+<a role="button" href="http://127.0.0.1:5000/interfaz/{{ json['id_ip'] }}" target="_blank"  class="btn btn-primary">Interfaces activas: </a> {{ json["act_interfaces"] }} <br> <br>
+<a role="button" href="http://127.0.0.1:5000/usuarios/{{ json['id_ip'] }}" target="_blank"  class="btn btn-danger">MOSTRAR USUARIOS</a>	
+</div>
+ <div class="container bg-dark p-3 my-3 " >	
+
+	<div class="row">
+		<div  class="col-sm">
+<a role="button" href="http://127.0.0.1:5000/dispositivos" target="_blank"  class="btn btn-danger">VOLVER</a>		
+<h1 align="center" class="text-white">Edita el router</h1>
+    </div> </div>
+  <div class="row">
+    <div class="col-sm ">
+	
+    </div>
+    <div class="col-sm container p-3 my-3 bg-success">
+      <form method="POST" action= '{{json["url"]}}'>
+      <p> No. <input type="text" disabled="disabled" value='{{json["numero"]}}' name="name" /> 
+      <p> Interfaces activas <input type="text" disabled="disabled" value='{{json["act_interfaces"]}}' name="act_interfaces" /> 
+      <p> ingresa hostname:<br><input type="text" name="hostname">
+	<p> ingresa ID (IP más alta de sus enlaces):<input type="text" name="id_ip">
+	<p> ingresa marca del router:<input type="text" name="marca">
+	
+	<p> ingresa versión del sistema operativo:<input type="text" name="versionSO">
+	<br><br>
+	<div align="center">
+      <input  class="btn btn-danger" type="submit" value="Modificar">
+	</div>
+    </form>
+  
+    </div>
+    <div class="col-sm">
+      
+    </div>
+  </div>
+
+	
+</div>
+{% endblock %}
+
+
+
+
+{% block scripts %}
+  
+<script src="{{url_for('static',filename='bootstrap-4.5.3-dist/js/bootstrap.min.js')}}"></script>
+
+<script>
+function myfunction(){
+confirm("Se está analizando la topología, espera...");
+}
+</script>
+
+{% endblock %}
+{% block styles %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='bootstrap-4.5.3-dist/css/bootstrap.min.css')}}" >
+{% endblock %}
+
+
