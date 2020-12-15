@@ -319,7 +319,7 @@ def edita_dispositivos(id):
 #ANALIZAR LA TOPOLOGIA PARA DIBUJARLA Y CREAR LOS USUARIOS SSH
 def ejecutar(ip,comandos):
     usuario = "admin"
-    contrasenia = "firulais"
+    contrasenia = "admin"
     try:
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy)
