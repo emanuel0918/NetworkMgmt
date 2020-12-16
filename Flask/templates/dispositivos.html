@@ -1,67 +1,33 @@
 {% extends "bootstrap/base.html" %}
 
 {% block navbar %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Redes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
 {% endblock %}
 
 {% block content %}
 
 
-<h1 align="center" class="text-primary">INFORMACIÓN DEL DISPOSITIVO</h1>
-<div align="center" class="container p-3 my-3 bg-primary text-white">
+<div class="container">
+	
+	<div class="row">
+		<div class="col-sm-12 col-md-6"  >
+<h1 align="center" class="text-danger">Informacion del dispositivo</h1>
+<div align="center" class="container p-3 my-3">
 <p>Hostname: {{ json["hostname"] }}
 <p>Ip mas alta de sus enlaces: {{ json["id_ip"] }}
 <p>Marca: {{ json["marca"] }}
 <p>Versión del sistema operativo: {{ json["versionSO"] }} <br><br>
-<a role="button" href="http://127.0.0.1:5000/interfaz/{{ json['id_ip'] }}" target="_blank"  class="btn btn-primary">Interfaces activas: </a> {{ json["act_interfaces"] }} <br> <br>
-<a role="button" href="http://127.0.0.1:5000/usuarios/{{ json['id_ip'] }}" target="_blank"  class="btn btn-danger">MOSTRAR USUARIOS</a>	
+<a role="button" href="http://127.0.0.1:5000/interfaz/{{ json['id_ip'] }}" target="_blank"  class="text-danger">Interfaces activas: </a> {{ json["act_interfaces"] }} <br> <br>
+<a role="button" href="http://127.0.0.1:5000/usuarios/{{ json['id_ip'] }}" target="_blank"  class="btn btn-danger">Usuarios</a>	
 </div>
- <div class="container bg-dark p-3 my-3 " >	
+</div>
 
-	<div class="row">
-		<div  class="col-sm">
-<a role="button" href="http://127.0.0.1:5000/dispositivos" target="_blank"  class="btn btn-danger">VOLVER</a>		
-<h1 align="center" class="text-white">Edita el router</h1>
-    </div> </div>
-  <div class="row">
-    <div class="col-sm ">
-	
-    </div>
-    <div class="col-sm container p-3 my-3 bg-success">
+
+	<div class="col-sm-12 col-md-6">
+		<div  class="col-sm">	
+<h1 align="center" class="">Edita el router</h1>
+    
+    <div class="col-sm container p-3 my-3">
       <form method="POST" action= '{{json["url"]}}'>
       <p> No. <input type="text" disabled="disabled" value='{{json["numero"]}}' name="name" /> 
       <p> Interfaces activas <input type="text" disabled="disabled" value='{{json["act_interfaces"]}}' name="act_interfaces" /> 
@@ -84,6 +50,8 @@
 
 	
 </div>
+</div>
+
 {% endblock %}
 
 
